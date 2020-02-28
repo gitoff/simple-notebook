@@ -35,6 +35,20 @@ new Vue({
     reportOperation (opName) {
       console.log('The', opName, 'operation was completed!')
     },
+    // Add a n ote with some default content and select it
+    addNote() {
+      const time = Date.now()
+      // Default new note
+      const note = {
+        id: String(time),
+        title: 'New note ' + (this.notes.length + 1),
+        content: '**Hi!** This notebook is using [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) for formatting!',
+        created: time,
+        favorite: false,
+      }
+      // Add to the list
+      this.notes.push(note)
+    },
   },
 
   // This will be called when the instance is ready
