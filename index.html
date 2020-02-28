@@ -12,6 +12,8 @@
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <!-- Add the marked library: -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- Helps format date into user friendly result -->
+  <script src="https://unpkg.com/moment"></script>
 
   <!-- Notebook app -->
   <div id="notebook">
@@ -40,7 +42,7 @@
     <template v-if="selectedNote">
       <!-- Main pane -->
       <section class="main">
-        <class class="toolbar">
+        <div class="toolbar">
           <!-- Toolbar for rename, delete, and favoriting -->
           <input v-model="selectedNote.title" placeholder="Note title" />
           <button @click="favoriteNote" title="Favorite note">
@@ -51,8 +53,15 @@
           <button @click="removeNote" title="Remove note">
             <i class="material-icons">delete</i>
           </button>
-        </class>
+        </div>
         <textarea v-model="selectedNote.content"></textarea>
+        <div class="toolbar status-bar">
+          <!-- Status bar -->
+          <span class="date">
+            <span class="label">Created</span>
+            <span class="value">{{ selectedNote.created | date }}</span>
+          </span>
+        </div>
       </section>
 
       <!-- Preview pane -->
