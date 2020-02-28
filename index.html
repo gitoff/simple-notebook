@@ -39,6 +39,13 @@
     <template v-if="selectedNote">
       <!-- Main pane -->
       <section class="main">
+        <class class="toolbar">
+          <!-- Toolbar for rename, delete, and favoriting -->
+          <input v-model="selectedNote.title" placeholder="Note title" />
+          <button @click="removeNote" title="Remove note">
+            <i class="material-icons">delete</i>
+          </button>
+        </class>
         <textarea v-model="selectedNote.content"></textarea>
       </section>
 
