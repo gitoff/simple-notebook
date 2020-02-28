@@ -24,7 +24,7 @@ new Vue({
 
     selectedNote () {
       // Return the matching selectedId note
-      return this.selectedId ? this.notes.find(note => note.id === this.selectedId) : ''
+      return this.notes.find(note => note.id === this.selectedId)
     },
   },
 

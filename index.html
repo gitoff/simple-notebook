@@ -36,15 +36,17 @@
       </div>
     </aside>
 
-    <!-- Main pane -->
-    <section class="main">
-      <textarea v-model="selectedNote.content"></textarea>
-    </section>
+    <template v-if="selectedNote">
+      <!-- Main pane -->
+      <section class="main">
+        <textarea v-model="selectedNote.content"></textarea>
+      </section>
 
-    <!-- Preview pane -->
-    <aside class="preview" v-html="notePreview">
-      {{ notePreview }}
-    </aside>
+      <!-- Preview pane -->
+      <aside class="preview" v-html="notePreview">
+        {{ notePreview }}
+      </aside>
+    </template>
   </div>
 
   <!-- Some JavaScript -->
