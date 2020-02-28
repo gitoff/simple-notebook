@@ -11,6 +11,8 @@ new Vue({
       content: 'This is a note.',
       // Array containing all notes
       notes: [],
+      // Id of the selected note
+      selectedId: null,
     }
   },
 
@@ -51,6 +53,10 @@ new Vue({
       }
       // Add to the list
       this.notes.push(note)
+    },
+
+    selectNote (note) {
+      this.selectedId = note.id
     },
   },
 

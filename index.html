@@ -27,7 +27,11 @@
       </div>
       <div class="notes">
         <!-- Note list here -->
-        <div class="note" v-for="note of notes">{{ note.title }}</div>
+        <div class="note" 
+          v-for="note of notes"
+          @click="selectNote(note)"
+          >{{ note.title }}
+        </div>
       </div>
     </aside>
 
