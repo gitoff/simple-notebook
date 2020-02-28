@@ -26,6 +26,12 @@ new Vue({
       // Return the matching selectedId note
       return this.notes.find(note => note.id === this.selectedId)
     },
+
+    sortedNotes () {
+      return this.notes.slice()
+        .sort((a, b) => a.created - b.created)
+        .sort((a, b) => (a.favorite === b.favorite)? 0 : a.favorite? -1 : 1)
+    },
   },
 
   // Change watchers
@@ -76,6 +82,12 @@ new Vue({
           this.notes.splice(index, 1)
         }
       }
+    },
+
+    favoriteNote () {
+      // Invert value of favorite using XOR operator shorthand
+      // this.selectedNote.favorite = !this.selectedNote.favorite
+      this.selectedNote.favorite ^= true
     },
   },
 
