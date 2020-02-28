@@ -1,8 +1,10 @@
 // New VueJS instance
 new Vue({
+  name: 'Notebook',
+
   // CSS selector of the root DOM element
   el: '#notebook',
-
+  
   // Some data
   data() {
     return {
@@ -35,8 +37,9 @@ new Vue({
     reportOperation (opName) {
       console.log('The', opName, 'operation was completed!')
     },
+
     // Add a n ote with some default content and select it
-    addNote() {
+    addNote () {
       const time = Date.now()
       // Default new note
       const note = {
