@@ -17,4 +17,13 @@ new Vue({
       return marked(this.content)
     },
   },
+
+  // Change watchers
+  watch: {
+    // Watching 'content' data property
+    content (val, oldVal) {
+      console.log('new note:', val, 'old note:', oldVal)
+      localStorage.setItem('content', val)
+    },
+  },
 })
