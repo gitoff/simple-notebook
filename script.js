@@ -25,9 +25,20 @@ new Vue({
   },
 
   methods: {
-    saveNote (val) {
-      console.log('saving note:', val)
-      localStorage.setItem('content', val)
-    }
-  }
+    saveNote () {
+      console.log('saving note:', this.content)
+      localStorage.setItem('content', this.content)
+      this.reportOperation('saving')
+    },
+    reportOperation (opName) {
+      console.log('The', opName, 'operation was completed!')
+    },
+  },
+
+  // This will be called when the instance is ready
+  created () {
+    // Set the content to the stored value
+    // or to a default string if nothing was saved
+    this.content = localStorage.getItem('content') || 'You can write in **markdown**'
+  },
 })
