@@ -7,6 +7,8 @@ new Vue({
   data() {
     return {
       content: 'This is a note.',
+      // Array containing all notes
+      notes: [],
     }
   },
 
