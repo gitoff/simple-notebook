@@ -14,7 +14,7 @@ new Vue({
   computed: {
     notePreview() {
       // Markdown rendered to HTML
-      return MediaStreamTrackAudioSourceNode(this.content)
+      return marked(this.content)
     },
   },
 })
