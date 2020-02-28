@@ -102,7 +102,10 @@ input {
 
 .status-bar {
   color: #999;
-  font-style: italic;
+}
+
+.value {
+  font-weight: bold;
 }
 
 textarea {
