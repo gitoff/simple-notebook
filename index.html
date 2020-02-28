@@ -21,7 +21,7 @@
       <!-- Toolbar -->
       <div class="toolbar">
         <!-- Add note button -->
-        <button @click="addNote">
+        <button @click="addNote" :title="notes.length + ' note(s) already'">
           <i class="material-icons">add</i> Add note
         </button>
       </div>
