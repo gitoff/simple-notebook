@@ -8,7 +8,6 @@ new Vue({
   // Some data
   data() {
     return {
-      content: 'This is a note.',
       // Array containing all notes
       notes: [],
       // Id of the selected note
@@ -20,27 +19,22 @@ new Vue({
   computed: {
     notePreview() {
       // Markdown rendered to HTML
-      return marked(this.content)
+      return this.selectedNote ? marked(this.selectedNote.content) : ''
+    },
+
+    selectedNote () {
+      // Return the matching selectedId note
+      return this.selectedId ? this.notes.find(note => note.id === this.selectedId) : ''
     },
   },
 
   // Change watchers
   watch: {
-    // Watching 'content' data property
-    content: 'saveNote',
+    
   },
 
   methods: {
-    saveNote () {
-      console.log('saving note:', this.content)
-      localStorage.setItem('content', this.content)
-      this.reportOperation('saving')
-    },
-    reportOperation (opName) {
-      console.log('The', opName, 'operation was completed!')
-    },
-
-    // Add a n ote with some default content and select it
+    // Add a note with some default content and select it
     addNote () {
       const time = Date.now()
       // Default new note
@@ -61,9 +55,9 @@ new Vue({
   },
 
   // This will be called when the instance is ready
-  created () {
-    // Set the content to the stored value
-    // or to a default string if nothing was saved
-    this.content = localStorage.getItem('content') || 'You can write in **markdown**'
-  },
+  // created () {
+  //   // Set the content to the stored value
+  //   // or to a default string if nothing was saved
+  //   this.content = localStorage.getItem('content') || 'You can write in **markdown**'
+  // },
 })
