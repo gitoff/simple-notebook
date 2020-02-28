@@ -30,6 +30,7 @@
         <div class="note" 
           v-for="note of notes"
           @click="selectNote(note)"
+          :class="{ selected: note === selectedNote }"
           >{{ note.title }}
         </div>
       </div>
